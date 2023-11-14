@@ -10,13 +10,28 @@ from sklearn.model_selection import train_test_split
 from matplotlib import pyplot as plt
 import streamlit as st
 import inventorize as inv
+from PIL import Image
+
+
+# In[12]:
+
+
+import matplotlib
+
+
+# In[13]:
+
+
+print(matplotlib.__version__)
 
 
 # In[ ]:
 
 
+image = Image.open('logo-short.png')
 st.set_page_config(
-    page_title="LogiGeek App", 
+    page_title="INV_Simulation01|LogiGeek", 
+    page_icon=image,
     layout="wide")
 
 st.header('定期発注方式のシミュレーションアプリ')

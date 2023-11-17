@@ -16,11 +16,14 @@ from PIL import Image
 # In[ ]:
 
 
-image = Image.open('logo-short.png')
+image1 = Image.open('logigeek-logo-short.png')
 st.set_page_config(
     page_title="INV_Simulation01|LogiGeek", 
-    page_icon=image,
+    page_icon=image1,
     layout="wide")
+
+image2 = Image.open('logigeek-logo-long.png')
+st.image(image2, caption='ロジスティクスをDXするための小ネタ集')
 
 st.header('定期発注方式のシミュレーションアプリ')
 st.text('')

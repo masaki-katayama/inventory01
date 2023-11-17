@@ -13,18 +13,6 @@ import inventorize as inv
 from PIL import Image
 
 
-# In[12]:
-
-
-import matplotlib
-
-
-# In[13]:
-
-
-print(matplotlib.__version__)
-
-
 # In[ ]:
 
 
@@ -41,7 +29,7 @@ st.text('１．定期発注を行った場合の在庫推移／欠品率／ト�
 st.text('２．需要データはcsvファイルでアップロードできます。')
 st.text('３．リードタイムや輸送／保管コスト等を設定できるため、輸送モードの違いによるトータル物流コストをシミュレーションできます。')
 st.text('詳細な使い方については下記サイトをご覧下さい↓')
-st.link_button(":blue[定期発注で発注間隔を変えると物流コストはどうなるか？アプリで簡単シミュレーション|ロジギーク]", 
+st.link_button(":blue[定期発注で輸送モードを変えると物流コストはどうなるか？アプリで簡単シミュレーション|ロジギーク]", 
                "https://rikei-logistics.com/app-periodic1")
 st.text('')
 
@@ -134,7 +122,7 @@ fill_rate_c = f'{fill_rate:.1f}％'
 service_rate_c = f'{service_rate:.1f}％'
 
 st.text('')
-st.subheader('シミュレーション結果（在庫推移）')
+st.subheader('シミュレーション結果（在庫推移）', divider='blue')
 show_df = result[0].rename(columns={'period': '日', 'demand': '需要', 'sales': '出荷', 'inventory_level': '庫内在庫',
                                    'inventory_position': 'トータル在庫', 'order': '発注', 'max': '補充目標', 'recieved': '入庫',
                                     'lost_order': '欠品'})
@@ -147,6 +135,7 @@ st.write('サービス率 ： ', service_rate_c)
 st.write('充足率 ： ', fill_rate_c)
 
 st.text('')
+st.subheader(':mag: 庫内在庫推移')
 x = range(1, len(test_df)+2)
 fig = plt.figure(figsize=(10, 6))
 ax = fig.add_subplot(111)
@@ -156,7 +145,7 @@ ax.set_ylabel('Stock', weight ='bold', size = 14, color ='black')
 st.pyplot(fig)
 
 st.text('')
-st.subheader('シミュレーション結果（物流コスト）')
+st.subheader('シミュレーション結果（物流コスト）', divider='blue')
 st.write('トータル輸送コスト ： ', ts_cost_c)
 st.write('トータル保管コスト ： ', st_cost_c)
 st.write('トータル欠品コスト ： ', so_cost_c)

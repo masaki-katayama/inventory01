@@ -24,6 +24,9 @@ st.set_page_config(
 
 image2 = Image.open('logigeek-logo-long.png')
 st.image(image2, caption='ロジスティクスをDXするための小ネタ集')
+st.link_button(":blue[ロジギークへリンク]", 
+               "https://rikei-logistics.com/",
+                use_container_width = True)
 
 st.header('定期発注方式のシミュレーションアプリ')
 st.text('')
